@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 @ControllerAdvice
 @Slf4j
-public class EmployeePayrollExpressionHandler {
+public class AddressBookExpressionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ResponseDTO> handleMethodArgumentNotValidException(
             MethodArgumentNotValidException exception) {
@@ -27,11 +27,7 @@ public class EmployeePayrollExpressionHandler {
         ResponseDTO respDTO = new ResponseDTO("Exception While Processing REST Request", errMesg);
         return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.BAD_REQUEST);
     }
-    @ExceptionHandler(EmployeePayrollException.class)
-    public ResponseEntity<ResponseDTO> handleEmployeePayrollException(EmployeePayrollException exception) {
-        ResponseDTO respDTO = new ResponseDTO("Exception while REST Request", exception.getMessage());
-        return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.BAD_REQUEST);
-    }
+
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<ResponseDTO> handelHttpMessageNotReadableException(
             HttpMessageNotReadableException exception) {

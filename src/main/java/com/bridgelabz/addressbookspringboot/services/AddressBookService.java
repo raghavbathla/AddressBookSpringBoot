@@ -1,7 +1,7 @@
 package com.bridgelabz.addressbookspringboot.services;
 
 import com.bridgelabz.addressbookspringboot.dto.AddressBookDTO;
-import com.bridgelabz.addressbookspringboot.exceptions.EmployeePayrollException;
+import com.bridgelabz.addressbookspringboot.exceptions.AddressBookExceptions;
 import com.bridgelabz.addressbookspringboot.model.AddressBookData;
 import com.bridgelabz.addressbookspringboot.repository.AddressBookRepositery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class AddressBookService implements IAddressBookService{
     @Override
     public AddressBookData getAddressBookDataById(int AddressBookID) {
         return addressBookRepositery.findById(AddressBookID)
-                .orElseThrow(() -> new EmployeePayrollException("Employee with EmployeeId" + AddressBookID
+                .orElseThrow(() -> new AddressBookExceptions("Employee with EmployeeId" + AddressBookID
                         + " Doesn't Exists...!"));
     }
 
